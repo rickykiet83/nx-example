@@ -16,12 +16,23 @@
         "tsConfig": "apps/products/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
+          "apps/products/src/_redirects",
           {
+            "input": "libs/shared/assets/src/assets",
             "glob": "**/*",
-            "input": "apps/products/public"
+            "output": "assets"
+          },
+          {
+            "input": "libs/shared/assets/src",
+            "glob": "favicon.ico",
+            "output": "."
           }
         ],
-        "styles": ["apps/products/src/styles.scss"]
+        "styles": [
+          "libs/shared/styles/src/index.scss",
+          "libs/shared/header/index.scss",
+          "node_modules/normalize.css/normalize.css"
+        ]
       },
       "configurations": {
         "production": {

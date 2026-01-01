@@ -1,1 +1,15 @@
-<p>Products HomePage works!</p>
+<ul>
+  @for (product of products; track product) {
+  <li>
+    <a [routerLink]="['/product', product.id]">
+      <figure>
+        <img [src]="product.image" />
+      </figure>
+      <h2>{{ product.name }}</h2>
+      <p>
+        {{product.price}}
+      </p>
+    </a>
+  </li>
+  }
+</ul>
