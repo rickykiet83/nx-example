@@ -12,13 +12,3 @@ export const productsFeature = createFeature({
   name: PRODUCTS_FEATURE_KEY,
   reducer: productReducer,
 });
-
-// export const {
-//   name,
-//   reducer: productsReducer,
-
-//   selectProductsState,
-//   selectProducts,
-//   selectStatus,
-//   selectError,
-// } = productsFeature;
