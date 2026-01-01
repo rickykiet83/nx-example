@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/cart-e2e/src",
-  "tags": [],
+  "tags": ["scope:cart", "type:e2e"],
   "implicitDependencies": ["cart"],
   "// targets": "to see all targets run: nx show project cart-e2e --web",
   "targets": {}

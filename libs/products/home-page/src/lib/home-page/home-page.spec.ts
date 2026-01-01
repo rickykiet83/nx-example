@@ -1,18 +1,32 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HomePage } from './home-page';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+import { HomePageComponent } from './home-page';
+import { productsFeature } from '@nx-example/shared/product/state';
+
+describe('HomePageComponent', () => {
+  let fixture: ComponentFixture<HomePageComponent>;
+  let component: HomePageComponent;
+  let store: MockStore;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomePage],
+      imports: [HomePageComponent],
+      providers: [
+        provideMockStore({
+          selectors: [
+            { selector: productsFeature.selectProducts, value: [] },
+            { selector: productsFeature.selectStatus, value: 'idle' },
+          ],
+        }),
+      ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomePage);
+    store = TestBed.inject(MockStore);
+
+    fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

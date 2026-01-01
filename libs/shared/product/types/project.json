@@ -4,16 +4,5 @@
   "sourceRoot": "libs/shared/product/types/src",
   "projectType": "library",
   "tags": ["type:types", "scope:shared"],
-  "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/shared/product/types",
-        "main": "libs/shared/product/types/src/index.ts",
-        "tsConfig": "libs/shared/product/types/tsconfig.lib.json",
-        "assets": ["libs/shared/product/types/*.md"]
-      }
-    }
-  }
+  "targets": {}
 }

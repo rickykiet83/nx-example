@@ -3,7 +3,7 @@
   <li>
     <a [routerLink]="['/product', product.id]">
       <figure>
-        <img [src]="product.image" />
+        <img src="{{product.image}}" alt="{{product.name}}" />
       </figure>
       <h2>{{ product.name }}</h2>
       <p>

@@ -5,5 +5,6 @@
   "sourceRoot": "apps/products-e2e/src",
   "implicitDependencies": ["products"],
   "// targets": "to see all targets run: nx show project products-e2e --web",
-  "targets": {}
+  "targets": {},
+  "tags": ["scope:products", "type:e2e"]
 }

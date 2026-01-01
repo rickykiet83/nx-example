@@ -1,19 +1,9 @@
 {
   "name": "shared-product-state",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "implicitDependencies": ["shared-product-types"],
   "sourceRoot": "libs/shared/product/state/src",
   "projectType": "library",
   "tags": ["scope:shared", "type:state"],
-  "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/shared/product/state",
-        "main": "libs/shared/product/state/src/index.ts",
-        "tsConfig": "libs/shared/product/state/tsconfig.lib.json",
-        "assets": ["libs/shared/product/state/*.md"]
-      }
-    }
-  }
+  "targets": {}
 }

@@ -23,15 +23,16 @@
         "libs/products/product-detail-page/src/index.ts"
       ],
       "@nx-example/shared/cart/state": ["libs/shared/cart/state/src/index.ts"],
+      "@nx-example/shared/product/data": [
+        "libs/shared/product/data/src/index.ts"
+      ],
       "@nx-example/shared/product/state": [
         "libs/shared/product/state/src/index.ts"
       ],
       "@nx-example/shared/product/types": [
         "libs/shared/product/types/src/index.ts"
       ],
-      "@nx-example/shared/product/data": [
-        "libs/shared/product/data/src/index.ts"
-      ],
+
       "@nx-example/shared/header": ["libs/shared/header/src/index.ts"],
       "@nx-examples/shared-assets": ["libs/shared/assets/src/index.ts"],
       "@nx-examples/shared-jsxify": ["libs/shared/jsxify/src/index.ts"],

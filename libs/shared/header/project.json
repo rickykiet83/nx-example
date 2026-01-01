@@ -4,16 +4,5 @@
   "sourceRoot": "libs/shared/header/src",
   "projectType": "library",
   "tags": ["type:ui", "scope:shared"],
-  "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/shared/header",
-        "main": "libs/shared/header/src/index.ts",
-        "tsConfig": "libs/shared/header/tsconfig.lib.json",
-        "assets": ["libs/shared/header/*.md"]
-      }
-    }
-  }
+  "targets": {}
 }

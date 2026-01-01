@@ -18,6 +18,8 @@
     },
     {
       "path": "./tsconfig.spec.json"
-    }
+    },
+    { "path": "../types/tsconfig.lib.json" },
+    { "path": "../data/tsconfig.lib.json" }
   ]
 }

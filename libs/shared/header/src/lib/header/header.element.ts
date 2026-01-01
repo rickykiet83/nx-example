@@ -49,7 +49,7 @@ export class HeaderElement extends HTMLElement {
 
   private createRightSide() {
     const githubLink = document.createElement('a');
-    githubLink.href = 'https://github.com/nrwl/nx-examples';
+    githubLink.href = 'https://github.com/rickykiet83/nx-example';
     githubLink.target = '_blank';
     githubLink.rel = 'noreferrer';
 

@@ -4,16 +4,5 @@
   "sourceRoot": "libs/shared/cart/state/src",
   "projectType": "library",
   "tags": ["scope:shared", "type:state"],
-  "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/shared/cart/state",
-        "main": "libs/shared/cart/state/src/index.ts",
-        "tsConfig": "libs/shared/cart/state/tsconfig.lib.json",
-        "assets": ["libs/shared/cart/state/*.md"]
-      }
-    }
-  }
+  "targets": {}
 }

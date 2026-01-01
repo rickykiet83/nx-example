@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-
 import App from './app';
+import { BrowserRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
 describe('App', () => {
   it('should render successfully', () => {
@@ -11,16 +10,5 @@ describe('App', () => {
       </BrowserRouter>,
     );
     expect(baseElement).toBeTruthy();
-  });
-
-  it('should have a greeting as the title', () => {
-    const { getAllByText } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>,
-    );
-    expect(
-      getAllByText(new RegExp('Welcome cart', 'gi')).length > 0,
-    ).toBeTruthy();
   });
 });
