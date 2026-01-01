@@ -28,6 +28,9 @@
       ],
       "@nx-example/shared/product/types": [
         "libs/shared/product/types/src/index.ts"
+      ],
+      "@nx-example/shared/product/data": [
+        "libs/shared/product/data/src/index.ts"
       ]
     }
   },

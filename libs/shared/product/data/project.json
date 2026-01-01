@@ -1,0 +1,19 @@
+{
+  "name": "shared-product-data",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/product/data/src",
+  "projectType": "library",
+  "tags": ["type:types", "scope:shared"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/product/data",
+        "main": "libs/shared/product/data/src/index.ts",
+        "tsConfig": "libs/shared/product/data/tsconfig.lib.json",
+        "assets": ["libs/shared/product/data/*.md"]
+      }
+    }
+  }
+}
