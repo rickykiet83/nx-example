@@ -1,5 +1,6 @@
+import { PRODUCTS_FEATURE_KEY, productReducer } from './products.reducer';
+
 import { createFeature } from '@ngrx/store';
-import { productReducer } from './products.reducer';
 
 /**
  * Feature (NgRx standalone-friendly)
@@ -8,6 +9,16 @@ import { productReducer } from './products.reducer';
  * - selectors auto-generated
  */
 export const productsFeature = createFeature({
-  name: 'products',
+  name: PRODUCTS_FEATURE_KEY,
   reducer: productReducer,
 });
+
+// export const {
+//   name,
+//   reducer: productsReducer,
+
+//   selectProductsState,
+//   selectProducts,
+//   selectStatus,
+//   selectError,
+// } = productsFeature;

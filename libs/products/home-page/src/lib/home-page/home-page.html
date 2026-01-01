@@ -1,5 +1,5 @@
 <ul>
-  @for (product of products; track product) {
+  @for (product of (products$ | async); track product) {
   <li>
     <a [routerLink]="['/product', product.id]">
       <figure>

@@ -1,7 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 
 import { Product } from '@nx-example/shared/product/types';
+import { products } from '@nx-example/shared/product/data';
 import { productsActions } from './products.actions';
+
+export const PRODUCTS_FEATURE_KEY = 'products';
 
 export type ProductsStatus = 'idle' | 'loading' | 'loaded' | 'error';
 
@@ -35,3 +38,10 @@ export const productReducer = createReducer(
     error,
   }))
 );
+
+
+export function loadProductsFromMock() {
+  // Normally this would be effect calling API.
+  // We'll just return PRODUCTS.
+  return products;
+}
