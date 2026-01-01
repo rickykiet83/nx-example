@@ -25,6 +25,9 @@
       "@nx-example/shared/cart/state": ["libs/shared/cart/state/src/index.ts"],
       "@nx-example/shared/product/state": [
         "libs/shared/product/state/src/index.ts"
+      ],
+      "@nx-example/shared/product/types": [
+        "libs/shared/product/types/src/index.ts"
       ]
     }
   },
