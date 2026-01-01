@@ -1,1 +1,1 @@
-export * from './lib/shared-product-state';
+export * from './lib/+state/products.feature';

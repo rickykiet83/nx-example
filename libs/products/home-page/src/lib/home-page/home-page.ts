@@ -13,8 +13,4 @@ import { mockProducts } from '@nx-example/shared/product/data';
 })
 export class HomePageComponent {
   products = mockProducts;
-
-  constructor() {
-    console.log(this.products);
-  }
 }

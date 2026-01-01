@@ -3267,6 +3267,60 @@
     "@emnapi/runtime" "^1.7.1"
     "@tybys/wasm-util" "^0.10.1"
 
+"@ngrx/component-store@^21.0.1":
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-21.0.1.tgz#49eddb6b9549361a6e327d99a0d91299408c4f3c"
+  integrity sha512-aOfudK8MqCZQUuBjMnXAXRxRcr9Qu/+9/2iIh4aLhmGXC5JCpkDi1a82A/39EUFZy2xBbI4lPI7P817b1PQRvQ==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/effects@^21.0.1":
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-21.0.1.tgz#00d6a0fdfb5de2936c339e1289cc743b3ea5dace"
+  integrity sha512-hSdpToAiSYa5FJ/CAygQHpnCaF2S1HO7q/57ob3XvNTWmkofa0VqI/IIe4W57bojh2YOWCJ91SCn3kAjymaV3g==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/entity@^21.0.1":
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-21.0.1.tgz#cd75122a9ac71b6764760f58b0e6af77e62d4723"
+  integrity sha512-h7PjW8WzkPwSYDlicWcEw6EJ9yBfa+fbf5tmIty4cZ8yH6+Ld3aHuGAMAu8xbnV79oj0TGa/PSynu5LZq4jXdA==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/operators@^21.0.1":
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/operators/-/operators-21.0.1.tgz#4ced5db643d6c887af552e94e48f7c7e5b71bf20"
+  integrity sha512-CfSh9MzQoIjbipSJ4q1+ZhcY537I5th4hNdNiWHu/egx2+SgFUZlOcQ6E9c+DJMsVkYOoIYhKX1E/bYlFBqXJw==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngrx/router-store@^21.0.1":
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-21.0.1.tgz#7213f0ae09b8784f11e3ef5371233c11ba5fd6b8"
+  integrity sha512-hacH8ciwCRMLg7p7bThslYn564GOyS5LPf9c8cX4FTyOH+iJM32eJd2Lt64cA62vN6ruofV/IM2vB09nCkxHzg==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/schematics@^21.0.0":
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/schematics/-/schematics-21.0.1.tgz#0b1b513ff4424166a3308642b4ed1bc3e14995c9"
+  integrity sha512-FpdzU91QXnXwxS3+Mo7zKHAOzQYmNkC1gtmj1t9z1Qs67glqFCEMtDoa3ew8P7kJnqRWNbyS8qGNmIOyEZkpHQ==
+
+"@ngrx/store-devtools@^21.0.1":
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-21.0.1.tgz#fb5125927f7976b0e76f609671a2df25cc6a66e5"
+  integrity sha512-G9fO7CFwYUpz8+JZ9uny+lVJ7iv6PcFJDg+jae5CCrAUIiflnR8gbwD8exAd2AODpxPCpmnSojuLNpLDAcwGzQ==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store@^21.0.1":
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-21.0.1.tgz#86103f7080d7f69711657f827e7a5f67827034a2"
+  integrity sha512-2hGnw/c5o8nmKzyx7TrUUM7FXjE2zqjX0EF+wLbw9Oy/L+VdCmx+ZI1BFjuAR4B8PKEWHG2KSbOM13SMNkpZiA==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@21.0.4":
   version "21.0.4"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-21.0.4.tgz#fc9a839b47984be9588d56aab25f9e9c7515c4ab"
@@ -9864,6 +9918,13 @@ jake@^10.8.5:
     filelist "^1.0.4"
     picocolors "^1.1.1"
 
+jasmine-marbles@~0.9.1:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/jasmine-marbles/-/jasmine-marbles-0.9.2.tgz#5adfee5f72c7f24270687fa64a6e8a8613ffa841"
+  integrity sha512-T7RjG4fRsdiGGzbQZ6Kj39qYt6O1/KIcR4FkUNsD3DUGkd/AzpwzN+xtk0DXlLWEz5BaVdK1SzMgQDVw879c4Q==
+  dependencies:
+    lodash "^4.17.20"
+
 jest-changed-files@30.2.0:
   version "30.2.0"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-30.2.0.tgz#602266e478ed554e1e1469944faa7efd37cee61c"
@@ -10717,7 +10778,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==
 
-lodash@^4.17.10, lodash@^4.17.14:
+lodash@^4.17.10, lodash@^4.17.14, lodash@^4.17.20:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
