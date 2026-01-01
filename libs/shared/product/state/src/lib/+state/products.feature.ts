@@ -1,6 +1,5 @@
 import { PRODUCTS_FEATURE_KEY, productReducer } from './products.reducer';
-
-import { createFeature } from '@ngrx/store';
+import { createFeature, createSelector } from '@ngrx/store';
 
 /**
  * Feature (NgRx standalone-friendly)
@@ -12,3 +11,8 @@ export const productsFeature = createFeature({
   name: PRODUCTS_FEATURE_KEY,
   reducer: productReducer,
 });
+
+export const selectProductById = (id: string) =>
+  createSelector(productsFeature.selectProducts, (products) =>
+    products.find(p => p.id === id) ?? null
+  );
