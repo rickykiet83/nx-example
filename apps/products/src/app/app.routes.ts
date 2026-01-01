@@ -6,10 +6,12 @@ export const appRoutes: Route[] = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomePageComponent
+    component: HomePageComponent,
+    data: { title: 'Products' }
   },
   {
     path: 'product/:productId',
-    component: ProductDetailPageComponent
+    component: ProductDetailPageComponent,
+    data: { title: 'Product detail' },
   },
 ];
