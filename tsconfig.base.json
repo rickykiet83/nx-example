@@ -34,7 +34,8 @@
       ],
       "@nx-example/shared/header": ["libs/shared/header/src/index.ts"],
       "@nx-examples-clone/shared-assets": ["libs/shared/assets/src/index.ts"],
-      "@nx-examples-clone/shared-jsxify": ["libs/shared/jsxify/src/index.ts"]
+      "@nx-examples-clone/shared-jsxify": ["libs/shared/jsxify/src/index.ts"],
+      "@nx-example/shared/product/ui": ["libs/shared/product/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
