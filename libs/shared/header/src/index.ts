@@ -1,1 +1,4 @@
-export * from './lib/shared-header';
+export * from './lib/header/header.element';
+
+import { registerHeaderElement } from './lib/header/header.element';
+registerHeaderElement();
