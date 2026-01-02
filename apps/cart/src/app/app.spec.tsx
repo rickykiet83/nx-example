@@ -34,9 +34,9 @@ describe('App', () => {
     const { history } = renderWithProviders();
 
     fireEvent.click(screen.getByRole('link', { name: /cart/i }));
-    expect(history.location.pathname).toBe('/');
+    expect(history.location.pathname).toBe('/cart');
 
     fireEvent.click(screen.getByRole('link', { name: /products/i }));
-    expect(history.location.pathname).toBe('/products');
+    expect(history.location.pathname).toBe('/');
   });
 });
