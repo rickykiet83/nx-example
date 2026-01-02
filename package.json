@@ -6,7 +6,7 @@
     "start": "nx serve",
     "start:local-deploy": "yarn run build:all && node tools/scripts/prepare-deploy.mjs && node tools/serve-deploy.mjs",
     "dev:all": "nx run-many --target=serve --all --maxParallel=100",
-    "build:all": "nx run-many --target=lint,test,build --projects=cart,products",
+    "build:all": "nx run-many --target=lint,test,build --projects=cart,products && node tools/scripts/prepare-deploy.mjs",
     "start:products": "npx serve dist/apps/products -l 4300",
     "start:cart": "npx serve dist/apps/cart -l 4301",
     "dev:cart": "nx serve cart",
@@ -28,7 +28,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "nx": "nx",
-    "workspace-generator": "nx workspace-generator"
+    "workspace-generator": "nx workspace-generator",
+    "deploy:netlify": "node tools/scripts/deploy.ts"
   },
   "private": true,
   "dependencies": {
@@ -111,6 +112,7 @@
     "angular-eslint": "^21.0.1",
     "babel-jest": "^30.0.2",
     "browser-sync": "^3.0.0",
+    "dotenv": "^17.2.3",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-import": "2.31.0",
@@ -128,6 +130,7 @@
     "jiti": "2.4.2",
     "jsdom": "~22.1.0",
     "jsonc-eslint-parser": "^2.1.0",
+    "netlify-cli": "^23.13.0",
     "nx": "22.3.3",
     "prettier": "~3.6.2",
     "react-refresh": "^0.10.0",
