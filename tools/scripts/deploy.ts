@@ -6,11 +6,10 @@ function sh(cmd: string) {
   execSync(cmd, { stdio: 'inherit' });
 }
 
-const SITE_ID = process.env.NETLIFY_SITE_ID;
 const AUTH = process.env.NETLIFY_AUTH_TOKEN;
 
-if (!SITE_ID || !AUTH) {
-  console.error('Missing NETLIFY_SITE_ID or NETLIFY_AUTH_TOKEN');
+if (!AUTH) {
+  console.error('Missing NETLIFY_AUTH_TOKEN');
   process.exit(1);
 }
 
@@ -19,5 +18,5 @@ sh('yarn build:all');
 
 // 2) deploy dist/deploy lên Netlify (prod)
 sh(
-  `npx netlify deploy --dir dist/deploy --prod --site ${SITE_ID} --auth ${AUTH} --message "manual deploy"`
+  `npx netlify deploy --dir dist/deploy --prod --auth ${AUTH} --message "manual deploy"`
 );
