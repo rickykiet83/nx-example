@@ -1,5 +1,5 @@
 [build]
-  command = "yarn nx reset && NODE_ENV=production yarn nx build products && yarn nx build cart && yarn nx run cart:copy-assets-dist && node tools/scripts/prepare-deploy.mjs"
+  command = "NODE_ENV=production yarn nx build products && yarn nx build cart && yarn nx run cart:copy-assets-dist && node tools/scripts/prepare-deploy.mjs"
   publish = "dist/deploy"
 
 # 1) normalize /cart -> /cart/
