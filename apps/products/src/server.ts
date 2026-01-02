@@ -1,14 +1,14 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr/node';
-import express from 'express';
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
 import bootstrap from './main.server';
+import { existsSync } from 'node:fs';
+import express from 'express';
+import { join } from 'node:path';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/apps/products/browser');
+  const distFolder = join(process.cwd(), 'dist/apps/products');
   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
     ? join(distFolder, 'index.original.html')
     : join(distFolder, 'index.html');

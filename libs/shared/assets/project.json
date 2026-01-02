@@ -3,17 +3,5 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/shared/assets/src",
   "projectType": "library",
-  "tags": ["type:assets", "scope:shared"],
-  "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/shared/assets",
-        "main": "libs/shared/assets/src/index.ts",
-        "tsConfig": "libs/shared/assets/tsconfig.lib.json",
-        "assets": ["libs/shared/assets/*.md"]
-      }
-    }
-  }
+  "tags": ["type:assets", "scope:shared"]
 }

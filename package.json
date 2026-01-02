@@ -6,6 +6,8 @@
     "start": "nx serve",
     "start:all": "nx run-many --target=serve --all --maxParallel=100",
     "build:all": "nx run-many --target=lint,test,build --projects=cart,products",
+    "start:products": "npx serve dist/apps/products -l 4300",
+    "start:cart": "npx serve dist/apps/cart -l 4301",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
