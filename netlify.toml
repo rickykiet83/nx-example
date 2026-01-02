@@ -1,18 +1,27 @@
 [build]
-  command = "yarn nx reset && yarn nx build products && yarn nx build cart && yarn nx run cart:copy-assets-dist && node tools/scripts/prepare-deploy.mjs"
+  command = "yarn nx reset && NODE_ENV=production yarn nx build products && yarn nx build cart && yarn nx run cart:copy-assets-dist && node tools/scripts/prepare-deploy.mjs"
   publish = "dist/deploy"
 
+# 1) normalize /cart -> /cart/
 [[redirects]]
   from = "/cart"
   to = "/cart/"
   status = 301
   force = true
 
+# 2) IMPORTANT: handle /cart/ itself
+[[redirects]]
+  from = "/cart/"
+  to = "/cart/index.html"
+  status = 200
+
+# 3) handle deep links under /cart/*
 [[redirects]]
   from = "/cart/*"
   to = "/cart/index.html"
   status = 200
 
+# 4) everything else -> products SPA
 [[redirects]]
   from = "/*"
   to = "/index.html"
