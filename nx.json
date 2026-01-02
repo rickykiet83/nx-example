@@ -116,6 +116,12 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "serve": {
+      "dependsOn": ["copy-assets"]
+    },
+    "build": {
+      "dependsOn": ["copy-assets"]
     }
   },
   "defaultProject": "products",

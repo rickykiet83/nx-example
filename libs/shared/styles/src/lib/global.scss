@@ -14,6 +14,15 @@ img {
   max-height: 100%;
 }
 
+figure {
+  flex-shrink: 0;
+  height: 125px;
+  width: 125px;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+}
+
 .icon {
   width: 1em;
   height: 1em;
@@ -41,4 +50,12 @@ a {
   body {
     font-size: 12px;
   }
+  figure {
+      width: 50px;
+      height: 50px;
+    }
+
+    .title {
+      margin-left: 1em;
+    }
 }

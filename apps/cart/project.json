@@ -5,6 +5,13 @@
   "projectType": "application",
   "tags": ["type:app", "scope:cart"],
   "// targets": "to see all targets run: nx show project cart --web",
-  "targets": {},
+  "targets": {
+    "copy-assets": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node tools/scripts/copy-assets.ts"
+      }
+    }
+  },
   "implicitDependencies": ["shared-assets", "shared-styles"]
 }

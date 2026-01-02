@@ -3,7 +3,7 @@ import { cartActions } from '@nx-example/shared/cart/state';
 import { products } from '@nx-example/shared/product/data';
 import { useDispatch } from 'react-redux';
 
-export function ProductsPage() {
+export function CartProductsPage() {
   const dispatch = useDispatch();
 
   return (
@@ -12,6 +12,11 @@ export function ProductsPage() {
       <ul>
         {products.map((p) => (
           <li key={p.id} style={{ marginBottom: 12 }}>
+            <a href={`/product/${p.id}`}>
+              <figure>
+                <img src={p.image} />
+              </figure>
+            </a>
             <strong>{p.name}</strong> - ${(p.price / 100).toFixed(2)}
             <button
               style={{ marginLeft: 12 }}
@@ -26,4 +31,4 @@ export function ProductsPage() {
   );
 }
 
-export default ProductsPage;
+export default CartProductsPage;
