@@ -31,7 +31,6 @@
         ],
         "styles": [
           "libs/shared/styles/src/index.scss",
-          "libs/shared/header/index.scss",
           "node_modules/normalize.css/normalize.css"
         ]
       },

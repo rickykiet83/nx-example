@@ -15,7 +15,7 @@ describe('ProductElement', () => {
   });
 
   it('displays the price', () => {
-    const el = document.createElement('nx-example-product-price') as any;
+    const el = document.createElement('nx-example-product-price');
 
     // ✅ attach to DOM so connectedCallback runs
     document.body.appendChild(el);
@@ -27,7 +27,7 @@ describe('ProductElement', () => {
   });
 
   it('displays the price via property setter', () => {
-    const el = document.createElement('nx-example-product-price') as any;
+    const el = document.createElement('nx-example-product-price');
     document.body.appendChild(el);
 
     el.value = 12345; // setter -> setAttribute -> attributeChangedCallback -> render

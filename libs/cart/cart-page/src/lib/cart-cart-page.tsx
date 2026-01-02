@@ -159,3 +159,5 @@ export function CartCartPage() {
     </StyledUl>
   );
 }
+
+export default CartCartPage;

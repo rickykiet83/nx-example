@@ -1,13 +1,3 @@
-import type { JSXify } from '@nx-examples/shared/jsxify';
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'nx-example-product-price': JSXify<ProductPriceElement>;
-    }
-  }
-}
-
 // A tiny Web Component for displaying price in cents as $xx.xx (or $xx)
 export class ProductPriceElement extends HTMLElement {
   static readonly tagName = 'nx-example-product-price';
@@ -59,5 +49,11 @@ export class ProductPriceElement extends HTMLElement {
 export function registerProductPriceElement(): void {
   if (!customElements.get(ProductPriceElement.tagName)) {
     customElements.define(ProductPriceElement.tagName, ProductPriceElement);
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'nx-example-product-price': ProductPriceElement;
   }
 }
