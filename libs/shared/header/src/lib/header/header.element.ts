@@ -1,3 +1,13 @@
+import type { JSXify } from '@nx-examples/shared/jsxify';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'nx-example-header': JSXify<HeaderElement>;
+    }
+  }
+}
+
 enum HeaderElementAttribute {
   Title = 'title',
 }

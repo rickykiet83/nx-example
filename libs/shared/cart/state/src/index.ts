@@ -1,1 +1,1 @@
-export * from './lib/shared-cart-state';
+export * from './lib/+state/cart.slice';

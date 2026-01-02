@@ -4,13 +4,12 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { ProductsState, loadProductsFromMock, productsActions, productsFeature } from '@nx-example/shared/product/state';
 
-import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'products-home-page',
-  imports: [CommonModule, RouterLink, AsyncPipe, NgOptimizedImage],
+  imports: [CommonModule, RouterLink, AsyncPipe],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

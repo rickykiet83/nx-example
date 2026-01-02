@@ -1,4 +1,7 @@
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-export type JSXify<T extends Element> = Partial<
-  Omit<T, 'children'> & { children?: unknown[] }
->;
+import * as React from 'react';
+
+export type JSXify<T extends HTMLElement> =
+  React.DetailedHTMLProps<React.HTMLAttributes<T>, T> &
+  Partial<Record<keyof T, unknown>> & {
+    ref?: React.Ref<T>;
+  };
