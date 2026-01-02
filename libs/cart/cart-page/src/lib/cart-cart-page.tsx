@@ -112,7 +112,11 @@ export function CartCartPage() {
 
           <div className="title">
             <strong>{product.name}</strong>
-            <div>{formatAUD(product.price)}</div>
+            <div>
+              <nx-example-product-price
+                value={product.price}
+              ></nx-example-product-price>
+            </div>
           </div>
 
           {/* quantity selector để match CSS select */}

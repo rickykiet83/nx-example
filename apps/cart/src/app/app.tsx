@@ -1,8 +1,6 @@
 // Uncomment this line to use CSS modules
 // import styles from './app.module.scss';
 
-import '@nx-example/shared/header';
-
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { CartCartPage } from '@nx-example/cart/cart-page';

@@ -17,7 +17,12 @@ export function CartProductsPage() {
                 <img src={p.image} />
               </figure>
             </a>
-            <strong>{p.name}</strong> - ${(p.price / 100).toFixed(2)}
+            <strong>{p.name}</strong>
+            <p>
+              <nx-example-product-price
+                value={p.price}
+              ></nx-example-product-price>
+            </p>
             <button
               style={{ marginLeft: 12 }}
               onClick={() => dispatch(cartActions.addToCart(p))}

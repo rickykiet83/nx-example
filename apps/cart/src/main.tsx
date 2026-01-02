@@ -1,6 +1,7 @@
-import '@nx-example/shared/styles'; // nếu shared-styles export scss entry
-import '@nx-example/shared/header'; // hoặc đường dẫn đúng tới scss
-import 'normalize.css/normalize.css'; // nếu anh muốn normalize
+import '@nx-example/shared/styles';
+import '@nx-example/shared/header';
+import '@nx-example/shared/product/ui';
+import 'normalize.css/normalize.css';
 
 import * as ReactDOM from 'react-dom/client';
 
