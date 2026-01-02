@@ -2,10 +2,14 @@ const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
 const { NxReactWebpackPlugin } = require('@nx/react/webpack-plugin');
 const { join } = require('path');
 
+const isProd = process.env.NODE_ENV === 'production';
+const base = isProd ? '/cart/' : '/';
+
 module.exports = {
   output: {
     path: join(__dirname, '../../dist/apps/cart'),
     clean: true,
+    publicPath: base,
   },
   devServer: {
     port: 4201,
@@ -21,16 +25,12 @@ module.exports = {
       compiler: 'babel',
       main: './src/main.tsx',
       index: './src/index.html',
-      baseHref: '/',
+      baseHref: base,
       assets: ['./src/favicon.ico', './src/assets'],
       styles: ['./src/styles.scss'],
-      outputHashing: process.env['NODE_ENV'] === 'production' ? 'all' : 'none',
-      optimization: process.env['NODE_ENV'] === 'production',
+      outputHashing: isProd ? 'all' : 'none',
+      optimization: isProd,
     }),
-    new NxReactWebpackPlugin({
-      // Uncomment this line if you don't want to use SVGR
-      // See: https://react-svgr.com/
-      // svgr: false
-    }),
+    new NxReactWebpackPlugin({}),
   ],
 };

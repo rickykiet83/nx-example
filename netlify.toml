@@ -1,0 +1,19 @@
+[build]
+  command = "yarn nx reset && yarn nx build products && yarn nx build cart && yarn nx run cart:copy-assets-dist && node tools/scripts/prepare-deploy.mjs"
+  publish = "dist/deploy"
+
+[[redirects]]
+  from = "/cart"
+  to = "/cart/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cart/*"
+  to = "/cart/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

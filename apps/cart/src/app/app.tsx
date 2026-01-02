@@ -12,13 +12,13 @@ export function App() {
       <nx-example-header title="Cart" />
 
       <header style={{ padding: 16, borderBottom: '1px solid #eee' }}>
-        <Link to="/">Products</Link> | <Link to="/cart">Cart</Link>
+        <Link to="/products">Products</Link> | <Link to="/">Cart</Link>
       </header>
 
       <main style={{ padding: 16 }}>
         <Routes>
-          <Route path="/" element={<CartProductsPage />} />
-          <Route path="/cart" element={<CartCartPage />} />
+          <Route path="/" element={<CartCartPage />} />
+          <Route path="/products" element={<CartProductsPage />} />
         </Routes>
       </main>
     </div>

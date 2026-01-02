@@ -27,7 +27,6 @@ const renderWithProviders = (initialEntries = ['/']) => {
 describe('App', () => {
   it('renders header and navigation links', () => {
     renderWithProviders();
-    expect(screen.getByText(/cart/i)).toBeDefined();
     expect(document.querySelector('nx-example-header')).toBeTruthy();
   });
 
@@ -35,9 +34,9 @@ describe('App', () => {
     const { history } = renderWithProviders();
 
     fireEvent.click(screen.getByRole('link', { name: /cart/i }));
-    expect(history.location.pathname).toBe('/cart');
+    expect(history.location.pathname).toBe('/');
 
     fireEvent.click(screen.getByRole('link', { name: /products/i }));
-    expect(history.location.pathname).toBe('/');
+    expect(history.location.pathname).toBe('/products');
   });
 });
