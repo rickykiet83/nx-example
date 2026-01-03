@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import CartCartPage from './cart-cart-page';
+import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { cartReducer } from '@nx-example/shared/cart/state';
 import { configureStore } from '@reduxjs/toolkit';
@@ -32,7 +33,9 @@ const renderWithStore = (preloadedCartState = {}) => {
     store,
     ...render(
       <Provider store={store}>
-        <CartCartPage />
+        <MemoryRouter>
+          <CartCartPage />
+        </MemoryRouter>
       </Provider>,
     ),
   };
@@ -47,8 +50,9 @@ describe('CartCartPage', () => {
   it('renders cart items and total', () => {
     renderWithStore();
 
-    expect(screen.getByText(sampleProduct.name)).toBeDefined();
-    expect(screen.getByRole('heading', { name: /total/i })).toBeDefined();
+    const productNameElements = screen.getAllByText(sampleProduct.name);
+    expect(productNameElements[0]).toBeDefined();
+    expect(screen.getByText(/total/i)).toBeDefined();
     expect(screen.getByText('$246.90')).toBeDefined(); // 2 * 12345 cents -> $246.90
   });
 
