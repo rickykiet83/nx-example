@@ -75,3 +75,4 @@ Notes
 -----
 - `apps/*-e2e` hold Playwright suites for each app.
 - `yarn start:local-deploy` builds both apps and serves the deploy bundle locally.
+- NETLIFY_AUTH_TOKEN must be added in .env file if you want to deploy on your production.

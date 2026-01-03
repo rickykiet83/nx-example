@@ -29,7 +29,9 @@
     "help": "nx help",
     "nx": "nx",
     "workspace-generator": "nx workspace-generator",
-    "deploy:netlify": "node tools/scripts/deploy.ts"
+    "deploy:netlify": "node tools/scripts/deploy.ts",
+    "docker": "docker compose up -d",
+    "docker:build": "docker compose up -d --build",
   },
   "private": true,
   "dependencies": {
