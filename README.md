@@ -4,7 +4,7 @@ Nx Examples
 Production
 ----------
 - Home: https://nx-example-clone.netlify.app/
-- Cart products: https://nx-example-clone.netlify.app/cart/index.html
+- Cart products: https://nx-example-clone.netlify.app/cart
 
 Apps
 ----

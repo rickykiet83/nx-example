@@ -1,12 +1,12 @@
 // Uncomment this line to use CSS modules
 // import styles from './app.module.scss';
 
-import { useSelector } from 'react-redux';
 import { NavLink, Route, Routes } from 'react-router-dom';
 
 import { CartCartPage } from '@nx-example/cart/cart-page';
 import { CartProductsPage } from '@nx-example/cart/products-page';
 import { selectCartCount } from '@nx-example/shared/cart/state';
+import { useSelector } from 'react-redux';
 
 export function App() {
   const itemCount = useSelector(selectCartCount);
@@ -28,7 +28,7 @@ export function App() {
           <NavLink to="/" className={navLinkClass} end>
             Products
           </NavLink>
-          <NavLink to="/cart" className={navLinkClass}>
+          <NavLink to="/checkout" className={navLinkClass}>
             <span>Cart</span>
             {itemCount > 0 && (
               <span className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-xs font-semibold text-cyan-200">
@@ -42,7 +42,7 @@ export function App() {
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
         <Routes>
           <Route path="/" element={<CartProductsPage />} />
-          <Route path="/cart" element={<CartCartPage />} />
+          <Route path="/checkout" element={<CartCartPage />} />
         </Routes>
       </main>
     </div>
