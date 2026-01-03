@@ -1,16 +1,16 @@
 import '@nx-example/shared/product/ui';
 
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { distinctUntilChanged, map, switchMap, tap } from 'rxjs';
 import { loadProductsFromMock, productsActions, productsFeature, selectProductById } from '@nx-example/shared/product/state';
 
-import { ActivatedRoute } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'product-detail-product-detail-page',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './product-detail-page.html',
   styleUrl: './product-detail-page.scss',
