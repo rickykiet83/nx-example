@@ -34,7 +34,7 @@ describe('App', () => {
     const { history } = renderWithProviders();
 
     fireEvent.click(screen.getByRole('link', { name: /cart/i }));
-    expect(history.location.pathname).toBe('/cart');
+    expect(history.location.pathname).toBe('/checkout');
 
     fireEvent.click(screen.getByRole('link', { name: /products/i }));
     expect(history.location.pathname).toBe('/');
