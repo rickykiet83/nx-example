@@ -8,8 +8,8 @@ export function CartProductsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6">
-      <h2 className="text-xl font-semibold tracking-tight text-slate-100 mb-4">
-        Products
+      <h2 className="text-xl font-semibold tracking-tight text-gray-900 mb-4 t">
+        Products List
       </h2>
 
       <ul className="flex flex-col gap-3">

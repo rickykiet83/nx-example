@@ -4,10 +4,6 @@ import {
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 import {
-  provideClientHydration,
-  withEventReplay,
-} from '@angular/platform-browser';
-import {
   provideRouter,
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
@@ -24,7 +20,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideState(productsFeature),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideClientHydration(withEventReplay()),
     provideBrowserGlobalErrorListeners(),
     provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
   ],
