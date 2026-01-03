@@ -9,7 +9,7 @@ import { CartProductsPage } from '@nx-example/cart/products-page';
 export function App() {
   return (
     <div>
-      <nx-example-header title="Cart" className="bg-cyan-600 text-white" />
+      <nx-example-header title="Cart" />
 
       <header style={{ padding: 16, borderBottom: '1px solid #eee' }}>
         <Link to="/">Products</Link> | <Link to="/cart">Cart</Link>

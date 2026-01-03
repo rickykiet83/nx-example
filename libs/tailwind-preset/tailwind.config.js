@@ -6,8 +6,10 @@ module.exports = {
   content: [
     join(
       __dirname,
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}',
+      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html,scss}',
     ),
+    join(__dirname, '../../apps/**/*.{html,ts,tsx,scss}'),
+    join(__dirname, '../../libs/**/*.{html,ts,tsx,scss}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   darkMode: 'class',
@@ -20,6 +22,7 @@ module.exports = {
       },
     },
     fontFamily: {
+      sans: ['Poppins', 'system-ui', 'sans-serif'],
       display: ['Poppins', 'system-ui', 'sans-serif'],
       body: ['Poppins', 'system-ui', 'sans-serif'],
     },
