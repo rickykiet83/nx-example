@@ -24,9 +24,23 @@ export function CartCartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-        <p className="text-gray-700">Empty cart.</p>
-      </div>
+      <>
+        <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+          <p className="text-gray-700">Empty cart.</p>
+        </div>
+        <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+          <p>
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              Continue Shopping
+              <span aria-hidden="true"> &rarr;</span>
+            </button>
+          </p>
+        </div>
+      </>
     );
   }
 
