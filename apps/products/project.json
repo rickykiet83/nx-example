@@ -30,6 +30,7 @@
           }
         ],
         "styles": [
+          "apps/products/src/styles.scss",
           "libs/shared/styles/src/index.scss",
           "node_modules/normalize.css/normalize.css"
         ]
