@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
 
 import type { Product } from '@nx-example/shared/product/types';
 
@@ -8,7 +8,7 @@ export interface CartItem {
 }
 
 export interface CartState {
-  items: Record<string, CartItem>; // key = product.id
+  items: Record<string, CartItem>;
 }
 
 const initialState: CartState = {
@@ -47,9 +47,20 @@ const cartSlice = createSlice({
 export const cartActions = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;
 
-// selectors
-export const selectCartItemsArray = (state: { cart: CartState }) =>
-  Object.values(state.cart.items);
+// ✅ base selector (stable)
+export const selectCartState = (state: { cart: CartState }) => state.cart;
+export const selectCartItemsMap = createSelector(
+  [selectCartState],
+  (cart) => cart.items
+);
 
-export const selectCartCount = (state: { cart: CartState }) =>
-  Object.values(state.cart.items).reduce((sum, x) => sum + x.quantity, 0);
+// ✅ memoized selectors
+export const selectCartItemsArray = createSelector(
+  [selectCartItemsMap],
+  (items) => Object.values(items)
+);
+
+export const selectCartCount = createSelector(
+  [selectCartItemsArray],
+  (items) => items.reduce((sum, x) => sum + x.quantity, 0)
+);
