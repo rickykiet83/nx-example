@@ -1,7 +1,7 @@
 // Uncomment this line to use CSS modules
 // import styles from './app.module.scss';
 
-import { Link, Navigate, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 
 import { CartCartPage } from '@nx-example/cart/cart-page';
 import { CartProductsPage } from '@nx-example/cart/products-page';
@@ -9,7 +9,7 @@ import { CartProductsPage } from '@nx-example/cart/products-page';
 export function App() {
   return (
     <div>
-      <nx-example-header title="Cart" />
+      <nx-example-header title="Cart" className="bg-cyan-600 text-white" />
 
       <header style={{ padding: 16, borderBottom: '1px solid #eee' }}>
         <Link to="/">Products</Link> | <Link to="/cart">Cart</Link>
