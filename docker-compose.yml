@@ -1,0 +1,39 @@
+services:
+  deps:
+    image: node:24-alpine
+    working_dir: /workspace
+    command: sh -c "corepack enable && yarn install --frozen-lockfile"
+    volumes:
+      - .:/workspace
+      - node_modules:/workspace/node_modules
+
+  products:
+    image: node:24-alpine
+    working_dir: /workspace
+    depends_on:
+      - deps
+    command: sh -c "corepack enable && yarn nx serve products --host 0.0.0.0 --port 4200"
+    ports:
+      - "4200:4200"
+    environment:
+      CHOKIDAR_USEPOLLING: "1"
+    volumes:
+      - .:/workspace
+      - node_modules:/workspace/node_modules
+
+  cart:
+    image: node:24-alpine
+    working_dir: /workspace
+    depends_on:
+      - deps
+    command: sh -c "corepack enable && yarn nx serve cart --host 0.0.0.0 --port 4201"
+    ports:
+      - "4201:4201"
+    environment:
+      CHOKIDAR_USEPOLLING: "1"
+    volumes:
+      - .:/workspace
+      - node_modules:/workspace/node_modules
+
+volumes:
+  node_modules:

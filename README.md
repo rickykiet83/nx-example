@@ -59,6 +59,13 @@ Useful Commands
 - Affected targets: `yarn affected:test` | `yarn affected:lint` | `yarn affected:build` | `yarn affected:e2e`
 - Nx help: `yarn help`
 
+Docker
+------
+- Run both apps in containers: `docker compose up -d`
+- Rebuild after dependency changes: `docker compose up -d --build`
+- Stop and remove containers: `docker compose down`
+- Reset containers + node_modules volume: `docker compose down -v`
+
 CI & Deployment
 ---------------
 - Nx targets run via GitHub Actions (`.github/workflows/ci.yml`).
