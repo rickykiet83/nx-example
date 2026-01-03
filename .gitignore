@@ -46,3 +46,8 @@ Thumbs.db
 vite.config.*.timestamp*
 # Local Netlify folder
 .netlify
+apps/**/.netlify
+
+# Local env/secrets
+.env
+.env.local
