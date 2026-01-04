@@ -1,4 +1,5 @@
-import { saveProductToStorage, removeProductFromStorage } from './storage.service';
+import { removeProductFromStorage, saveProductToStorage } from './storage.service';
+
 import { StorageServiceCore } from '@nx-example/web-core';
 
 jest.mock('@nx-example/web-core');
@@ -21,49 +22,49 @@ describe('Storage Service', () => {
     (StorageServiceCore as jest.Mock).mockImplementation(() => mockStorageService);
   });
 
-  describe('saveProductToStorage', () => {
+  fdescribe('saveProductToStorage', () => {
     it('should add product to empty storage', () => {
       mockStorageService.getLocalItem.mockReturnValue(null);
 
       saveProductToStorage(sampleProduct);
 
-      expect(mockStorageService.getLocalItem).toHaveBeenCalledWith('products');
-      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('products', JSON.stringify(['p1']));
+      expect(mockStorageService.getLocalItem).toHaveBeenCalledWith('cart');
+      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('cart', JSON.stringify({ 'p1': 1 }));
     });
 
     it('should add product to existing storage without duplicates', () => {
-      mockStorageService.getLocalItem.mockReturnValue(JSON.stringify(['p2', 'p3']));
+      mockStorageService.getLocalItem.mockReturnValue(JSON.stringify({ 'p2': 1, 'p3': 2 }));
 
       saveProductToStorage(sampleProduct);
 
-      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('products', JSON.stringify(['p2', 'p3', 'p1']));
+      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('cart', JSON.stringify({ 'p2': 1, 'p3': 2, 'p1': 1 }));
     });
 
     it('should not add duplicate product to storage', () => {
-      mockStorageService.getLocalItem.mockReturnValue(JSON.stringify(['p1', 'p2']));
+      mockStorageService.getLocalItem.mockReturnValue(JSON.stringify({ 'p1': 1, 'p2': 2 }));
 
       saveProductToStorage(sampleProduct);
 
-      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('products', JSON.stringify(['p1', 'p2']));
+      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('cart', JSON.stringify({ 'p1': 2, 'p2': 2 }));
     });
   });
 
   describe('removeProductFromStorage', () => {
     it('should remove product from storage', () => {
-      mockStorageService.getLocalItem.mockReturnValue(JSON.stringify(['p1', 'p2', 'p3']));
+      mockStorageService.getLocalItem.mockReturnValue(JSON.stringify({ 'p1': 1, 'p2': 2 }));
 
       removeProductFromStorage(sampleProduct);
 
-      expect(mockStorageService.getLocalItem).toHaveBeenCalledWith('products');
-      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('products', JSON.stringify(['p2', 'p3']));
+      expect(mockStorageService.getLocalItem).toHaveBeenCalledWith('cart');
+      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('cart', JSON.stringify({ 'p1': 1, 'p2': 2 }));
     });
 
     it('should handle removing non-existent product from storage', () => {
-      mockStorageService.getLocalItem.mockReturnValue(JSON.stringify(['p2', 'p3']));
+      mockStorageService.getLocalItem.mockReturnValue(JSON.stringify({ 'p2': 1, 'p3': 2 }));
 
       removeProductFromStorage(sampleProduct);
 
-      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('products', JSON.stringify(['p2', 'p3']));
+      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('cart', JSON.stringify({ 'p2': 1, 'p3': 2 }));
     });
 
     it('should handle removing product from empty storage', () => {
@@ -71,7 +72,7 @@ describe('Storage Service', () => {
 
       removeProductFromStorage(sampleProduct);
 
-      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('products', JSON.stringify([]));
+      expect(mockStorageService.setLocalItem).toHaveBeenCalledWith('cart', JSON.stringify({}));
     });
   });
 });

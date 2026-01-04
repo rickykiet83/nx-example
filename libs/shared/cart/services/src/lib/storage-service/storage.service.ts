@@ -1,7 +1,7 @@
 import { Product } from '@nx-example/shared/product/types';
 import { StorageServiceCore } from '@nx-example/web-core';
 
-export function saveProductToStorage(product: Product, quantity: number = 1) {
+export function saveProductToStorage(product: Product, quantity = 1) {
   const storageService = new StorageServiceCore();
   const storedCart = storageService.getLocalItem('cart');
 
