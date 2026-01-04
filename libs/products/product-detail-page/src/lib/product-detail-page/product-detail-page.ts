@@ -51,20 +51,15 @@ export class ProductDetailPageComponent {
   );
 
   addProductToCart(product: Product) {
-    const storedProducts = this.storageService.getLocalItem('products');
+    const storedCart = this.storageService.getLocalItem('cart');
 
-    const existingProducts: string[] = storedProducts
-      ? JSON.parse(storedProducts)
-      : [];
+    const existingCart: { [productId: string]: number } = storedCart
+      ? JSON.parse(storedCart)
+      : {};
 
-    if (!existingProducts.includes(product.id)) {
-      existingProducts.push(product.id);
-    }
+    existingCart[product.id] = (existingCart[product.id] || 0) + 1;
 
-    this.storageService.setLocalItem(
-      'products',
-      JSON.stringify(existingProducts)
-    );
+    this.storageService.setLocalItem('cart', JSON.stringify(existingCart));
   }
 
 }

@@ -1,30 +1,41 @@
 import { Product } from '@nx-example/shared/product/types';
 import { StorageServiceCore } from '@nx-example/web-core';
 
-export function saveProductToStorage(product: Product) {
+export function saveProductToStorage(product: Product, quantity: number = 1) {
   const storageService = new StorageServiceCore();
-  const storedProducts = storageService.getLocalItem('products');
+  const storedCart = storageService.getLocalItem('cart');
 
-  const existingProducts: string[] = storedProducts
-    ? JSON.parse(storedProducts)
-    : [];
+  const existingCart: { [productId: string]: number } = storedCart
+    ? JSON.parse(storedCart)
+    : {};
 
-  if (!existingProducts.includes(product.id)) {
-    existingProducts.push(product.id);
-  }
+  existingCart[product.id] = (existingCart[product.id] || 0) + quantity;
 
-  storageService.setLocalItem('products', JSON.stringify(existingProducts));
+  storageService.setLocalItem('cart', JSON.stringify(existingCart));
 }
 
 export function removeProductFromStorage(product: Product) {
   const storageService = new StorageServiceCore();
-  const storedProducts = storageService.getLocalItem('products');
+  const storedCart = storageService.getLocalItem('cart');
 
-  const existingProducts: string[] = storedProducts
-    ? JSON.parse(storedProducts)
-    : [];
+  const existingCart: { [productId: string]: number } = storedCart
+    ? JSON.parse(storedCart)
+    : {};
 
-  const filteredProducts = existingProducts.filter(id => id !== product.id);
+  delete existingCart[product.id];
 
-  storageService.setLocalItem('products', JSON.stringify(filteredProducts));
+  storageService.setLocalItem('cart', JSON.stringify(existingCart));
+}
+
+export type StoredCart = Record<string, { product: Product; quantity: number }>;
+
+export function getCartFromStorage(): StoredCart {
+  const storageService = new StorageServiceCore();
+  const storedCart = storageService.getLocalItem('cart');
+
+  try {
+    return storedCart ? (JSON.parse(storedCart) as StoredCart) : {};
+  } catch {
+    return {};
+  }
 }
