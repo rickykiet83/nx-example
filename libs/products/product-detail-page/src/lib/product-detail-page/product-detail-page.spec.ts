@@ -45,5 +45,6 @@ describe('ProductDetailPage', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(store).toBeTruthy();
   });
 });

@@ -124,7 +124,7 @@
       "dependsOn": ["copy-assets"]
     }
   },
-  "neverConnectToCloud": true,
+  "neverConnectToCloud": false,
   "defaultProject": "products",
   "defaultBase": "main",
   "release": {
