@@ -1,10 +1,27 @@
+import { Product } from '@nx-example/shared/product/types';
 import React from 'react';
+import { StorageServiceCore } from '@nx-example/web-core';
 import { cartActions } from '@nx-example/shared/cart/state';
 import { products } from '@nx-example/shared/product/data';
 import { useDispatch } from 'react-redux';
 
 export function CartProductsPage() {
   const dispatch = useDispatch();
+
+  const saveProductToStorage = (product: Product) => {
+    const storageService = new StorageServiceCore();
+    const storedProducts = storageService.getLocalItem('products');
+
+    const existingProducts: string[] = storedProducts
+      ? JSON.parse(storedProducts)
+      : [];
+
+    if (!existingProducts.includes(product.id)) {
+      existingProducts.push(product.id);
+    }
+
+    storageService.setLocalItem('products', JSON.stringify(existingProducts));
+  };
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6">
@@ -41,7 +58,10 @@ export function CartProductsPage() {
 
             <button
               className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 disabled:opacity-50 disabled:pointer-events-none transition"
-              onClick={() => dispatch(cartActions.addToCart(p))}
+              onClick={() => {
+                saveProductToStorage(p);
+                dispatch(cartActions.addToCart(p));
+              }}
             >
               Add
             </button>

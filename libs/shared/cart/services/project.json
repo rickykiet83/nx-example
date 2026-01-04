@@ -1,0 +1,9 @@
+{
+  "name": "shared-cart-services",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/cart/services/src",
+  "projectType": "library",
+  "tags": ["type:service", "scope:shared:cart"],
+  "// targets": "to see all targets run: nx show project shared-cart-services --web",
+  "targets": {}
+}

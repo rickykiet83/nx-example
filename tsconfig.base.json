@@ -42,6 +42,9 @@
       "@nx-example/web-core": ["libs/web-core/src/index.ts"],
       "@nx-example/shared/product/service": [
         "libs/shared/product/services/src/index.ts"
+      ],
+      "@nx-example/shared/cart/services": [
+        "libs/shared/cart/services/src/index.ts"
       ]
     }
   },
