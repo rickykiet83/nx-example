@@ -124,7 +124,12 @@
       "dependsOn": ["copy-assets"]
     }
   },
-  "neverConnectToCloud": true, // set to false if we want to use nx cloud cache
+  "neverConnectToCloud": true,
   "defaultProject": "products",
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "release": {
+    "version": {
+      "preVersionCommand": "npx nx run-many -t build"
+    }
+  }
 }
