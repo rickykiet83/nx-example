@@ -45,7 +45,8 @@
       ],
       "@nx-example/shared/cart/services": [
         "libs/shared/cart/services/src/index.ts"
-      ]
+      ],
+      "@nx-example/shared/cart/types": ["libs/shared/cart/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,8 @@
+{
+  "name": "shared-cart-types",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/cart/types/src",
+  "projectType": "library",
+  "targets": {},
+  "tags": ["scope:shared", "type:types"]
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { cartActions } from '@nx-example/shared/cart/state';
 import { products } from '@nx-example/shared/product/data';
-import { saveProductToStorage } from '@nx-example/shared/cart/services';
+import { saveCartToStorage } from '@nx-example/shared/cart/services';
 import { useDispatch } from 'react-redux';
 
 export function CartProductsPage() {
@@ -43,7 +43,7 @@ export function CartProductsPage() {
             <button
               className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 disabled:opacity-50 disabled:pointer-events-none transition"
               onClick={() => {
-                saveProductToStorage(p);
+                saveCartToStorage(p);
                 dispatch(cartActions.addToCart(p));
               }}
             >

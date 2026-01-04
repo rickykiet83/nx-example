@@ -1,5 +1,19 @@
 import { Product } from '@nx-example/shared/product/types';
 import { StorageServiceCore } from '@nx-example/web-core';
+import { StoredCart } from '@nx-example/shared/cart/types';
+
+export function saveCartToStorage(product: Product, quantity = 1) {
+  const storageService = new StorageServiceCore();
+  const storedCart = storageService.getLocalItem('cart');
+
+  const existingCart: StoredCart = storedCart
+    ? JSON.parse(storedCart)
+    : {};
+
+  existingCart[product.id] = { product, quantity: (existingCart[product.id]?.quantity || 0) + quantity };
+
+  storageService.setLocalItem('cart', JSON.stringify(existingCart));
+}
 
 export function saveProductToStorage(product: Product, quantity = 1) {
   const storageService = new StorageServiceCore();
@@ -27,7 +41,6 @@ export function removeProductFromStorage(product: Product) {
   storageService.setLocalItem('cart', JSON.stringify(existingCart));
 }
 
-export type StoredCart = Record<string, { product: Product; quantity: number }>;
 
 export function getCartFromStorage(): StoredCart {
   const storageService = new StorageServiceCore();
