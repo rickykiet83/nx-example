@@ -3,9 +3,12 @@ import {
   cartActions,
   selectCartItemsArray,
 } from '@nx-example/shared/cart/state';
+import {
+  removeProductFromStorage,
+  updateCartItemQuantity,
+} from '@nx-example/shared/cart/services';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { removeProductFromStorage } from '@nx-example/shared/cart/services';
 import { useNavigate } from 'react-router-dom';
 
 const formatAUD = (cents: number) =>
@@ -110,6 +113,7 @@ export function CartCartPage() {
                     for (let i = 0; i < -diff; i++)
                       dispatch(cartActions.decrement(product.id));
                   }
+                  updateCartItemQuantity(product, next);
                 }}
                 className="
                   h-9 w-20 rounded-md border border-gray-300 bg-white

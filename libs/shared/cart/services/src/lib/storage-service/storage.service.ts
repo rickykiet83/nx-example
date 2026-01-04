@@ -41,7 +41,6 @@ export function removeProductFromStorage(product: Product) {
   storageService.setLocalItem('cart', JSON.stringify(existingCart));
 }
 
-
 export function getCartFromStorage(): StoredCart {
   const storageService = new StorageServiceCore();
   const storedCart = storageService.getLocalItem('cart');
@@ -51,4 +50,21 @@ export function getCartFromStorage(): StoredCart {
   } catch {
     return {};
   }
+}
+
+export function updateCartItemQuantity(product: Product, quantity: number) {
+  const storageService = new StorageServiceCore();
+  const storedCart = storageService.getLocalItem('cart');
+
+  const existingCart: StoredCart = storedCart
+    ? JSON.parse(storedCart)
+    : {};
+
+  if (quantity <= 0) {
+    delete existingCart[product.id];
+  } else {
+    existingCart[product.id] = { product, quantity };
+  }
+
+  storageService.setLocalItem('cart', JSON.stringify(existingCart));
 }
