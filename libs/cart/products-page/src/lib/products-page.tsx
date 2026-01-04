@@ -1,27 +1,11 @@
-import { Product } from '@nx-example/shared/product/types';
 import React from 'react';
-import { StorageServiceCore } from '@nx-example/web-core';
 import { cartActions } from '@nx-example/shared/cart/state';
 import { products } from '@nx-example/shared/product/data';
+import { saveProductToStorage } from '@nx-example/shared/cart/services';
 import { useDispatch } from 'react-redux';
 
 export function CartProductsPage() {
   const dispatch = useDispatch();
-
-  const saveProductToStorage = (product: Product) => {
-    const storageService = new StorageServiceCore();
-    const storedProducts = storageService.getLocalItem('products');
-
-    const existingProducts: string[] = storedProducts
-      ? JSON.parse(storedProducts)
-      : [];
-
-    if (!existingProducts.includes(product.id)) {
-      existingProducts.push(product.id);
-    }
-
-    storageService.setLocalItem('products', JSON.stringify(existingProducts));
-  };
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6">

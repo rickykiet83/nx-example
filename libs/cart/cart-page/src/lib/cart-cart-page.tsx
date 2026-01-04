@@ -5,6 +5,7 @@ import {
 } from '@nx-example/shared/cart/state';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { removeProductFromStorage } from '@nx-example/shared/cart/services';
 import { useNavigate } from 'react-router-dom';
 
 const formatAUD = (cents: number) =>
@@ -124,7 +125,10 @@ export function CartCartPage() {
               </select>
 
               <button
-                onClick={() => dispatch(cartActions.removeFromCart(product.id))}
+                onClick={() => {
+                  dispatch(cartActions.removeFromCart(product.id));
+                  removeProductFromStorage(product);
+                }}
                 className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-3 py-1 text-base font-medium text-white shadow-xs hover:bg-indigo-700"
               >
                 Remove
