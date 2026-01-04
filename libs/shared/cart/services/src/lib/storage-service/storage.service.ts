@@ -2,8 +2,17 @@ import { Product } from '@nx-example/shared/product/types';
 import { StorageServiceCore } from '@nx-example/web-core';
 import { StoredCart } from '@nx-example/shared/cart/types';
 
+let storageServiceInstance: StorageServiceCore | null = null;
+
+function getStorageService() {
+  if (!storageServiceInstance) {
+    storageServiceInstance = new StorageServiceCore();
+  }
+  return storageServiceInstance;
+}
+
 export function saveCartToStorage(product: Product, quantity = 1) {
-  const storageService = new StorageServiceCore();
+  const storageService = getStorageService();
   const storedCart = storageService.getLocalItem('cart');
 
   const existingCart: StoredCart = storedCart
@@ -15,24 +24,11 @@ export function saveCartToStorage(product: Product, quantity = 1) {
   storageService.setLocalItem('cart', JSON.stringify(existingCart));
 }
 
-export function saveProductToStorage(product: Product, quantity = 1) {
-  const storageService = new StorageServiceCore();
-  const storedCart = storageService.getLocalItem('cart');
-
-  const existingCart: { [productId: string]: number } = storedCart
-    ? JSON.parse(storedCart)
-    : {};
-
-  existingCart[product.id] = (existingCart[product.id] || 0) + quantity;
-
-  storageService.setLocalItem('cart', JSON.stringify(existingCart));
-}
-
 export function removeProductFromStorage(product: Product) {
-  const storageService = new StorageServiceCore();
+  const storageService = getStorageService();
   const storedCart = storageService.getLocalItem('cart');
 
-  const existingCart: { [productId: string]: number } = storedCart
+  const existingCart: StoredCart = storedCart
     ? JSON.parse(storedCart)
     : {};
 
@@ -42,7 +38,7 @@ export function removeProductFromStorage(product: Product) {
 }
 
 export function getCartFromStorage(): StoredCart {
-  const storageService = new StorageServiceCore();
+  const storageService = getStorageService();
   const storedCart = storageService.getLocalItem('cart');
 
   try {
@@ -53,7 +49,7 @@ export function getCartFromStorage(): StoredCart {
 }
 
 export function updateCartItemQuantity(product: Product, quantity: number) {
-  const storageService = new StorageServiceCore();
+  const storageService = getStorageService();
   const storedCart = storageService.getLocalItem('cart');
 
   const existingCart: StoredCart = storedCart

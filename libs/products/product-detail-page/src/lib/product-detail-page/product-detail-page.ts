@@ -10,6 +10,7 @@ import { Product } from '@nx-example/shared/product/types';
 import { StorageService } from '@nx-example/shared/product/service';
 // import { StorageServiceCore } from '@nx-example/web-core';
 import { Store } from '@ngrx/store';
+import { saveCartToStorage } from '@nx-example/shared/cart/services';
 
 @Component({
   selector: 'product-detail-product-detail-page',
@@ -50,16 +51,6 @@ export class ProductDetailPageComponent {
     )
   );
 
-  addProductToCart(product: Product) {
-    const storedCart = this.storageService.getLocalItem('cart');
-
-    const existingCart: { [productId: string]: number } = storedCart
-      ? JSON.parse(storedCart)
-      : {};
-
-    existingCart[product.id] = (existingCart[product.id] || 0) + 1;
-
-    this.storageService.setLocalItem('cart', JSON.stringify(existingCart));
-  }
+  addProductToCart = (product: Product) => saveCartToStorage(product)
 
 }
