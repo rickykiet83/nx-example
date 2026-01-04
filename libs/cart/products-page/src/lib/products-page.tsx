@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { cartActions } from '@nx-example/shared/cart/state';
 import { products } from '@nx-example/shared/product/data';
-import { saveCartToStorage } from '@nx-example/shared/cart/services';
+import {
+  getCartFromStorage,
+  saveCartToStorage,
+} from '@nx-example/shared/cart/services';
 import { useDispatch } from 'react-redux';
 
 export function CartProductsPage() {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const storedCart = getCartFromStorage();
+    dispatch(cartActions.loadCartFromStorage(storedCart));
+  }, [dispatch]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6">

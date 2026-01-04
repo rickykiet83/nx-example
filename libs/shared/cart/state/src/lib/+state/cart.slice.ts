@@ -19,6 +19,9 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    loadCartFromStorage(state, action: PayloadAction<Record<string, CartItem>>) {
+      state.items = action.payload || {};
+    },
     addToCart(state, action: PayloadAction<Product>) {
       const p = action.payload;
       const existing = state.items[p.id];
