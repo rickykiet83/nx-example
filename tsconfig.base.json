@@ -39,7 +39,10 @@
       "@nx-example/cart/products-page": [
         "libs/cart/products-page/src/index.ts"
       ],
-      "@nx-example/web-core": ["libs/web-core/src/index.ts"]
+      "@nx-example/web-core": ["libs/web-core/src/index.ts"],
+      "@nx-example/shared/product/service": [
+        "libs/shared/product/services/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

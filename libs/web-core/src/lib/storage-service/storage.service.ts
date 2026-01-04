@@ -34,7 +34,7 @@ export function createBrowserStorageProvider(): StorageProvider {
   return { session, local };
 }
 
-export class StorageService {
+export class StorageServiceCore {
   constructor(
     private readonly provider: StorageProvider = createBrowserStorageProvider()
   ) { }

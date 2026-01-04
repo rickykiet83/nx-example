@@ -6,6 +6,8 @@ import { distinctUntilChanged, map, switchMap, tap } from 'rxjs';
 import { loadProductsFromMock, productsActions, productsFeature, selectProductById } from '@nx-example/shared/product/state';
 
 import { AsyncPipe } from '@angular/common';
+import { Product } from '@nx-example/shared/product/types';
+import { StorageService } from '@nx-example/shared/product/service';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -20,6 +22,7 @@ export class ProductDetailPageComponent {
 
   private store = inject(Store);
   private route = inject(ActivatedRoute);
+  private storageService = inject(StorageService);
 
   private productId$ = this.route.paramMap.pipe(
     map((pm) => pm.get('productId') ?? ''),
@@ -45,4 +48,22 @@ export class ProductDetailPageComponent {
       )
     )
   );
+
+  saveProductToStorage(product: Product) {
+    const storedProducts = this.storageService.getLocalItem('products');
+
+    const existingProducts: string[] = storedProducts
+      ? JSON.parse(storedProducts)
+      : [];
+
+    if (!existingProducts.includes(product.id)) {
+      existingProducts.push(product.id);
+    }
+
+    this.storageService.setLocalItem(
+      'products',
+      JSON.stringify(existingProducts)
+    );
+  }
+
 }
