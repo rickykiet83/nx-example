@@ -8,6 +8,7 @@ import { loadProductsFromMock, productsActions, productsFeature, selectProductBy
 import { AsyncPipe } from '@angular/common';
 import { Product } from '@nx-example/shared/product/types';
 import { StorageService } from '@nx-example/shared/product/service';
+import { StorageServiceCore } from '@nx-example/web-core';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -19,10 +20,10 @@ import { Store } from '@ngrx/store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductDetailPageComponent {
-
   private store = inject(Store);
   private route = inject(ActivatedRoute);
   private storageService = inject(StorageService);
+  private storageCore = new StorageServiceCore();
 
   private productId$ = this.route.paramMap.pipe(
     map((pm) => pm.get('productId') ?? ''),
@@ -49,8 +50,8 @@ export class ProductDetailPageComponent {
     )
   );
 
-  saveProductToStorage(product: Product) {
-    const storedProducts = this.storageService.getLocalItem('products');
+  addProductToCart(product: Product) {
+    const storedProducts = this.storageCore.getLocalItem('products');
 
     const existingProducts: string[] = storedProducts
       ? JSON.parse(storedProducts)
@@ -60,7 +61,7 @@ export class ProductDetailPageComponent {
       existingProducts.push(product.id);
     }
 
-    this.storageService.setLocalItem(
+    this.storageCore.setLocalItem(
       'products',
       JSON.stringify(existingProducts)
     );
