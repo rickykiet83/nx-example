@@ -102,9 +102,3 @@ export enum SessionStorageKey {
   merchantDetails = 'merchantDetails',
   authToken = 'authToken',
 }
-
-export interface SessionStorageCustomerNames {
-  givenName: string;
-  familyName: string;
-  middleName?: string;
-}
