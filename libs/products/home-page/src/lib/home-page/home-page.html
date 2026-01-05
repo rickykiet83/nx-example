@@ -4,14 +4,21 @@
 
     <div class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
       @for (product of (products$ | async); track $index) {
-      <a [routerLink]="['/product', product.id]" class="group">
+      <div class="group">
+        <a [routerLink]="['/product', product.id]">
         <img src="{{product.image}}" alt="{{ product.name }}"
           class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8" />
+          </a>
         <h3 class="mt-4 text-sm text-gray-700">{{product.name}}</h3>
         <p class="mt-1 text-lg font-medium text-gray-900">
           <nx-example-product-price [value]="product.price" />
+          <button type="button" (click)="addProductToCart(product)"
+            class="inline-flex float-end rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 disabled:opacity-50 disabled:pointer-events-none transition">
+            Add To Cart
+          </button>
         </p>
-      </a>
+      </div>
+
       }
     </div>
     </div>
