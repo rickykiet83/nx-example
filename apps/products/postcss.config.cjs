@@ -1,6 +1,2 @@
-module.exports = {
-  plugins: {
-    tailwindcss: { config: './tailwind.config.js' },
-    autoprefixer: {},
-  },
-};
+// Reuse shared Tailwind/PostCSS preset
+module.exports = require('../../libs/tailwind-preset/postcss.config.js');

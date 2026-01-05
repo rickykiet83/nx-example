@@ -4590,7 +4590,7 @@
     proc-log "^6.0.0"
     which "^6.0.0"
 
-"@nx/angular@^22.3.3":
+"@nx/angular@22.3.3":
   version "22.3.3"
   resolved "https://registry.yarnpkg.com/@nx/angular/-/angular-22.3.3.tgz#e8571fa5ecf138ef116f2f7cc036dc451ab51ca2"
   integrity sha512-XE1grDPwpHySUSDMjgzgyjk/k6WjwooBXl19uilUR4solAPzlrz46qdyjzAPpEhvNAk0YsXflewgPebyuX5P2w==
@@ -4786,7 +4786,7 @@
     minimatch "9.0.3"
     tslib "^2.3.0"
 
-"@nx/react@^22.3.3":
+"@nx/react@22.3.3":
   version "22.3.3"
   resolved "https://registry.yarnpkg.com/@nx/react/-/react-22.3.3.tgz#12492b7785e841e1d63e706a3d8d9ccf6d833566"
   integrity sha512-rbnI34j2UwvS8K5I6KS1IkndYI5psRV+jV7+NfVhfBpDLzEW4NU7WB1IVuK7t1grrLKFfTs7GKw5cTSX33hnNg==
