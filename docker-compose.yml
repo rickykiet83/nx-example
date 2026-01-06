@@ -35,5 +35,19 @@ services:
       - .:/workspace
       - node_modules:/workspace/node_modules
 
+  deploy:
+    image: node:24-alpine
+    working_dir: /workspace
+    depends_on:
+      - deps
+    command: sh -c "corepack enable && yarn start:local-deploy"
+    ports:
+      - "4400:4400"
+    environment:
+      CHOKIDAR_USEPOLLING: "1"
+    volumes:
+      - .:/workspace
+      - node_modules:/workspace/node_modules
+
 volumes:
   node_modules:
