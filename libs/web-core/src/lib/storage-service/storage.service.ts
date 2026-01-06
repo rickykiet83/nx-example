@@ -1,5 +1,3 @@
-// storage.service.core.ts (in libs/ca-web-core or similar)
-
 export type NavigateFn = (url: string) => void;
 
 export interface StorageLike {

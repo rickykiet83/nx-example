@@ -8,7 +8,6 @@ import { Product } from '@nx-example/shared/product/types';
 import { RouterLink } from '@angular/router';
 import { StorageService } from '@nx-example/shared/product/service';
 import { Store } from '@ngrx/store';
-import { saveCartToStorage } from '@nx-example/shared/cart/services';
 
 @Component({
   selector: 'products-home-page',
